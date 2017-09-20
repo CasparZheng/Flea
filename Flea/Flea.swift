@@ -96,6 +96,7 @@ open class Flea: UIView {
     // default value for notification is 1.0
     // custom view can difine scale free, so this value has no effect
     open var contentWidthScale: CGFloat = 0
+    open var contentHeightScale: CGFloat = 0
     
     var containerView = UIView()
     public var contentView: UIView?
@@ -179,6 +180,14 @@ open class Flea: UIView {
                 (contentView as! FleaActionView).widthScale = contentWidthScale
             case .notification(_):
                 (contentView as! FleaNotificationView).widthScale = contentWidthScale
+            default:
+                break
+            }
+        }
+        if contentHeightScale != 0 {
+            switch self.type  {
+            case .notification:
+                (contentView as! FleaNotificationView).heightScale = contentHeightScale
             default:
                 break
             }
@@ -484,6 +493,32 @@ extension Flea {
                 (contentView as! FleaActionView).subTitleLabel.textColor = newValue
             case .alert:
                 (contentView as! FleaAlertView).subTitleLabel.textColor = newValue
+            default:
+                break
+            }
+        }
+    }
+    public var title: String? {
+        get {
+            switch type {
+            case .actionSheet:
+                return (contentView as! FleaActionView).subTitleLabel.text
+            case .alert:
+                return (contentView as! FleaAlertView).subTitleLabel.text
+            case .notification:
+                return (contentView as! FleaNotificationView).titleLabel.text
+            default:
+                return nil
+            }
+        }
+        set {
+            switch type {
+            case .actionSheet:
+                (contentView as! FleaActionView).subTitleLabel.text = newValue
+            case .alert:
+                (contentView as! FleaAlertView).subTitleLabel.text = newValue
+            case .notification:
+                (contentView as! FleaNotificationView).titleLabel.text = newValue
             default:
                 break
             }
