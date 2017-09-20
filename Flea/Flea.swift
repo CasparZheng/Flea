@@ -82,6 +82,7 @@ open class Flea: UIView {
     open var style = FleaStyle.normal(UIColor.white)
     open var backgroundStyle = FleaBackgroundStyle.clear
     open var forbidSystemAlertStyle = false
+    open var anchorCenterEdge: Direction?
     
     open var offset = UIOffset() {
         didSet {
@@ -249,7 +250,16 @@ open class Flea: UIView {
 
             }
         case .center(let direction):
-            finalPosition = CGPoint(x: bounds.midX - containerView.bounds.width/2 + offset.horizontal, y: bounds.midY - containerView.bounds.height/2 + finalOffset.vertical)
+            if let edge = anchorCenterEdge {
+                switch edge {
+                case .top:
+                    finalPosition = CGPoint(x: initialPosition.x, y: finalOffset.vertical)
+                default:
+                    finalPosition = CGPoint(x: bounds.midX - containerView.bounds.width/2 + offset.horizontal, y: bounds.midY - containerView.bounds.height/2 + finalOffset.vertical)
+                }
+            } else {
+                finalPosition = CGPoint(x: bounds.midX - containerView.bounds.width/2 + offset.horizontal, y: bounds.midY - containerView.bounds.height/2 + finalOffset.vertical)
+            }
             
             if let direction = direction {
                 layoutInitialPosition(direction: direction)
