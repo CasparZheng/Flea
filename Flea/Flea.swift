@@ -165,7 +165,7 @@ open class Flea: UIView {
         addGestureRecognizer(tap)
     }
     
-    func onTap(_ tap: UITapGestureRecognizer) {
+    @objc func onTap(_ tap: UITapGestureRecognizer) {
         dismiss()
     }
     
