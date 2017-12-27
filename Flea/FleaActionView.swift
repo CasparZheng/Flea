@@ -58,7 +58,7 @@ class FleaActionView: UIView {
     
     var titleLabel = { () -> UILabel in
         let label = UILabel()
-        label.textColor = FleaPalette.DarkGray
+        label.textColor = FleaPalette.Black
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.numberOfLines = 0

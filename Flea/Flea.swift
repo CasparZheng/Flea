@@ -434,7 +434,7 @@ extension Flea {
 
 // MARK: - [Alert][Action][Notification] Configuration
 extension Flea {
-    public func addAction(_ title: String, color: UIColor = FleaPalette.Blue, action: (() -> Void)?) {
+    public func addAction(_ title: String, color: UIColor = FleaPalette.Black, action: (() -> Void)?) {
         let item = FleaActionItem(title: title, color: color, action: action)
         switch type {
         case .actionSheet:
