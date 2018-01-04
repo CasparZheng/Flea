@@ -28,8 +28,13 @@ class NotificationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath as NSIndexPath).row {
         case 0:
-            let defaultNotificationFlea = Flea(type: .notification(title: "Hello, welcome to use Flea"))
-            defaultNotificationFlea.baseAt(tabBarController!).stay(2).show()
+            let defaultNotificationFlea = Flea(type: .notification(title: "Hello, welcome to use Flea Hello"))
+           
+            defaultNotificationFlea.setNotificationAction("Thanks", action: {
+                print("thanks")
+            })
+
+            defaultNotificationFlea.baseAt(navigationController).stay(2).show()
         case 1:
             let notificationFlea = Flea(type: .notification(title: "Hello, welcome to use Flea"))
             notificationFlea.titleColor = UIColor.white

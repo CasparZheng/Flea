@@ -73,8 +73,8 @@ public protocol FleaContentView {
 }
 
 open class Flea: UIView {
-    public var willDismissHandler: (() -> Void)?
-    public var didDismissHandler: (() -> Void)?
+    @objc public var willDismissHandler: (() -> Void)?
+    @objc public var didDismissHandler: (() -> Void)?
     
     open fileprivate(set) var type = Type.custom
     
@@ -100,7 +100,7 @@ open class Flea: UIView {
     open var contentHeightScale: CGFloat = 0
     
     var containerView = UIView()
-    public var contentView: UIView?
+    @objc public var contentView: UIView?
 
     fileprivate var baseView: UIView?
     fileprivate var baseNavigationConroller: UINavigationController?
@@ -312,7 +312,7 @@ open class Flea: UIView {
 }
 
 extension Flea {
-    public func show() {
+    @objc public func show() {
         if let baseNavigationConroller = baseNavigationConroller {
             show(inNavigationController: baseNavigationConroller)
             
@@ -403,7 +403,7 @@ extension Flea {
     }
     
     
-    public func dismiss(withCompletion completion: (() -> Void)? = nil) {
+    @objc public func dismiss(withCompletion completion: (() -> Void)? = nil) {
         willDismissHandler?()
         UIView.animate(withDuration: animationDuration, animations: { 
             
@@ -417,7 +417,7 @@ extension Flea {
                 self.removeFromSuperview()
         }) 
     }
-    public func stay(_ duration: Double) -> Flea {
+    @objc public func stay(_ duration: Double) -> Flea {
         self.duration = duration
         
         return self
@@ -425,7 +425,7 @@ extension Flea {
 }
 
 extension Flea {
-    public func baseAt(_ any: Any?, behind: UIView? = nil) -> Self {
+    @objc public func baseAt(_ any: Any?, behind: UIView? = nil) -> Self {
         switch any {
         case let view as UIView:
             baseView = view
@@ -443,7 +443,7 @@ extension Flea {
 }
 
 extension Flea {
-    public func fill(_ view: UIView) -> Self {
+    @objc public func fill(_ view: UIView) -> Self {
         contentView = view
         contentView!.frame = CGRect(origin: CGPoint(), size: contentView!.frame.size)
         
@@ -453,7 +453,7 @@ extension Flea {
 
 // MARK: - [Alert][Action][Notification] Configuration
 extension Flea {
-    public func addAction(_ title: String, color: UIColor = FleaPalette.Blue, action: (() -> Void)?) {
+    @objc public func addAction(_ title: String, color: UIColor = FleaPalette.Blue, action: (() -> Void)?) {
         let item = FleaActionItem(title: title, color: color, action: action)
         switch type {
         case .actionSheet:
@@ -466,7 +466,12 @@ extension Flea {
             break
         }
     }
-    public var titleColor: UIColor? {
+    @objc public func setNotificationAction(_ title: String, color: UIColor = UIColor.white, action: (() -> Void)?) {
+        let item = FleaActionItem(title: title, color: color, action: action)
+        let notificationView = contentView as! FleaNotificationView
+        notificationView.actionItem = item
+    }
+    @objc public var titleColor: UIColor? {
         get {
             switch type {
             case .actionSheet:
@@ -492,7 +497,7 @@ extension Flea {
             }
         }
     }
-    public var subTitleColor: UIColor? {
+    @objc public var subTitleColor: UIColor? {
         get {
             switch type {
             case .actionSheet:
@@ -514,7 +519,7 @@ extension Flea {
             }
         }
     }
-    public var title: String? {
+    @objc public var title: String? {
         get {
             switch type {
             case .actionSheet:

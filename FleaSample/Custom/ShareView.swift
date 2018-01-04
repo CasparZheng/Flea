@@ -75,7 +75,7 @@ class ShareView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func onCancel(_ sender: UIButton) {
+    @objc func onCancel(_ sender: UIButton) {
         flea?.dismiss()
     }
 }
