@@ -65,7 +65,7 @@ extension FleaNotificationView: FleaContentView {
 
         closeButton.addTarget(self, action: #selector(onClose(_:)), for: .touchUpInside)
         
-        let size = CGSize(width: flea.bounds.width, height: 44)
+        let size = CGSize(width: flea.bounds.width * widthScale, height: 44)
         
         closeButton.frame = CGRect(x: 10, y: 0, width: size.height, height: size.height)
         

@@ -33,13 +33,15 @@ class NotificationTableViewController: UITableViewController {
             defaultNotificationFlea.setNotificationAction("Thanks", action: {
                 print("thanks")
             })
-
+            defaultNotificationFlea.contentWidthScale = 0.8
             defaultNotificationFlea.baseAt(navigationController).stay(2).show()
         case 1:
             let notificationFlea = Flea(type: .notification(title: "Hello, welcome to use Flea"))
             notificationFlea.titleColor = UIColor.white
             notificationFlea.style = .normal(FleaPalette.Green)
             notificationFlea.contentWidthScale = 0.8
+//            notificationFlea.layer.masksToBounds = true
+            notificationFlea.cornerRadius  = 10.0
             notificationFlea.baseAt(navigationController).stay(2).show()
         default:
             break
