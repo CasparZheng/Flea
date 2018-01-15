@@ -361,10 +361,10 @@ extension Flea {
     
     fileprivate func show(inView view: UIView) {
         self.frame = view.bounds
-        view.addSubview(self)
+//        view.addSubview(self)
         if let baseBehindView = baseBehindView {
             view.insertSubview(self, belowSubview: baseBehindView)
-        }else {
+        } else {
             view.addSubview(self)
         }
 

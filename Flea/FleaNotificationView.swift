@@ -73,7 +73,7 @@ extension FleaNotificationView: FleaContentView {
         titleLabel.frame = CGRect(x: closeButton.frame.maxX + 5, y: 0, width: size.width - 2 * (closeButton.frame.maxX + 5), height: size.height)
         
         actionButton.sizeToFit()
-        print(actionButton.frame)
+//        print(actionButton.frame)
         actionButton.frame = CGRect(x: size.width - actionButton.frame.width - 20, y: 0, width: actionButton.frame.width, height: size.height)
         
         actionButton.addTarget(self, action: #selector(onTapButton(_:)), for: .touchUpInside)
