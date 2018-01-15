@@ -121,10 +121,10 @@ extension FleaActionView: FleaContentView {
         }
         self.frame = CGRect(x: 0, y: 0, width: fleaWidth, height: maxY)
     }
-    func onTap(_ sender: AnyObject) {
+    @objc func onTap(_ sender: AnyObject) {
         print("点我")
     }
-    func onTapAction(_ sender: AnyObject) {
+    @objc func onTapAction(_ sender: AnyObject) {
         print("点Button")
         
         let button = sender as! FleaActionButton
