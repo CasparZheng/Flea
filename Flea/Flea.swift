@@ -270,6 +270,15 @@ open class Flea: UIView {
             }
         }
         
+        // 适配iPhoneX
+        switch self.type {
+        case .custom:
+            if #available(iOS 11.0, *) {
+                self.finalPosition.y -= self.safeAreaInsets.bottom
+            }
+        default:
+            break
+        }
         
 //        switch direction {
 //        case .top:
