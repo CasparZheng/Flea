@@ -47,7 +47,7 @@ public enum Anchor {
 
 public enum FleaStyle {
     case normal(UIColor)
-    case blur(UIBlurEffectStyle)
+    case blur(UIBlurEffect.Style)
 }
 
 public enum FleaBackgroundStyle {

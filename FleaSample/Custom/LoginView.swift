@@ -50,7 +50,7 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = FleaPalette.Blue
         button.tintColor = UIColor.white
-        button.setTitle("Sign In", for: UIControlState())
+        button.setTitle("Sign In", for: UIControl.State())
         
         return button
     }()
