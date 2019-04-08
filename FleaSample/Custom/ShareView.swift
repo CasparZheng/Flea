@@ -59,7 +59,7 @@ class ShareView: UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.white
         button.tintColor = FleaPalette.DarkGray
-        button.setTitle("Cancel", for: UIControlState())
+        button.setTitle("Cancel", for: UIControl.State())
         
         return button
     }()
@@ -75,7 +75,7 @@ class ShareView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func onCancel(_ sender: UIButton) {
+    @objc func onCancel(_ sender: UIButton) {
         flea?.dismiss()
     }
 }
