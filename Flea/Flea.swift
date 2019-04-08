@@ -169,7 +169,7 @@ open class Flea: UIView {
         dismiss()
     }
     
-    func prepared() {
+    @objc func prepared() {
         guard let contentView = contentView else {
             return
         }
@@ -311,7 +311,7 @@ open class Flea: UIView {
     }
 }
 
-extension Flea {
+@objc extension Flea {
     public func show() {
         if let baseNavigationConroller = baseNavigationConroller {
             show(inNavigationController: baseNavigationConroller)
@@ -424,7 +424,7 @@ extension Flea {
     }
 }
 
-extension Flea {
+@objc extension Flea {
     public func baseAt(_ any: Any?, behind: UIView? = nil) -> Self {
         switch any {
         case let view as UIView:
@@ -442,7 +442,7 @@ extension Flea {
     }
 }
 
-extension Flea {
+@objc extension Flea {
     public func fill(_ view: UIView) -> Self {
         contentView = view
         contentView!.frame = CGRect(origin: CGPoint(), size: contentView!.frame.size)
@@ -452,7 +452,7 @@ extension Flea {
 }
 
 // MARK: - [Alert][Action][Notification] Configuration
-extension Flea {
+@objc extension Flea {
     public func addAction(_ title: String, color: UIColor = FleaPalette.Black, action: (() -> Void)?) {
         let item = FleaActionItem(title: title, color: color, action: action)
         switch type {
