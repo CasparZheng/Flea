@@ -109,8 +109,8 @@ extension FleaActionView: FleaContentView {
             let button = FleaActionButton(type: .custom)
             
             button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            button.setTitle(item.title, for: UIControlState())
-            button.setTitleColor(item.color, for: UIControlState())
+            button.setTitle(item.title, for: UIControl.State())
+            button.setTitleColor(item.color, for: UIControl.State())
             button.frame = CGRect(x: 0, y: maxY, width: fleaWidth, height: 44)
             maxY += 44
             
@@ -128,7 +128,7 @@ extension FleaActionView: FleaContentView {
         print("点Button")
         
         let button = sender as! FleaActionButton
-        let index = buttons.index(of: button)!
+        let index = buttons.firstIndex(of: button)!
         let item = actionItems[index]
         
         item.action?()

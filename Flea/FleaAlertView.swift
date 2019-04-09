@@ -122,10 +122,10 @@ extension FleaAlertView: FleaContentView {
             button1.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             button2.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             
-            button1.setTitle(actionItems[0].title, for: UIControlState())
-            button1.setTitleColor(actionItems[0].color, for: UIControlState())
-            button2.setTitle(actionItems[1].title, for: UIControlState())
-            button2.setTitleColor(actionItems[1].color, for: UIControlState())
+            button1.setTitle(actionItems[0].title, for: UIControl.State())
+            button1.setTitleColor(actionItems[0].color, for: UIControl.State())
+            button2.setTitle(actionItems[1].title, for: UIControl.State())
+            button2.setTitleColor(actionItems[1].color, for: UIControl.State())
             
             contentLine.frame = CGRect(x: 0, y: maxY, width: contentWidth, height: 0.5)
             buttonLine.frame = CGRect(x: contentWidth / 2, y: maxY, width: 0.5, height: 44)
@@ -150,8 +150,8 @@ extension FleaAlertView: FleaContentView {
                 let button = FleaAlertButton(type: .custom)
                 button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
                 
-                button.setTitle(item.title, for: UIControlState())
-                button.setTitleColor(item.color, for: UIControlState())
+                button.setTitle(item.title, for: UIControl.State())
+                button.setTitleColor(item.color, for: UIControl.State())
                 button.frame = CGRect(x: 0, y: maxY, width: contentWidth, height: 44)
                 maxY += 44
                 
@@ -167,7 +167,7 @@ extension FleaAlertView: FleaContentView {
         self.frame = CGRect(x: 0, y: 0, width: contentWidth, height: maxY)   
     }
     @objc fileprivate func onTapButton(_ sender: FleaAlertButton) {
-        let index = buttons.index(of: sender)!
+        let index = buttons.firstIndex(of: sender)!
         let item = actionItems[index]
         
         item.action?()

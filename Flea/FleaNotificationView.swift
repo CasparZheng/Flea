@@ -24,8 +24,8 @@ class FleaNotificationView: UIView {
     
     var actionItem: FleaActionItem? {
         didSet {
-            actionButton.setTitle(actionItem?.title, for: UIControlState())
-            actionButton.setTitleColor(actionItem?.color, for: UIControlState())
+            actionButton.setTitle(actionItem?.title, for: UIControl.State())
+            actionButton.setTitleColor(actionItem?.color, for: UIControl.State())
         }
     }
 
@@ -42,7 +42,7 @@ class FleaNotificationView: UIView {
         
         let icon = UIImage(named: "flea-close", in: Bundle(for: FleaNotificationView.self), compatibleWith: nil)
         button.tintColor = UIColor.white
-        button.setImage(icon, for: UIControlState())
+        button.setImage(icon, for: UIControl.State())
         
         return button
     }()
